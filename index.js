@@ -11,15 +11,12 @@ const usuario = require("./src/router/usuario.router"); //arquivo de rota do usu
 const app = express();
 
 // PORT é utilizada quando estiver em PROD (Setada pela Vercel) e a 3000 em DEV
-const port = process.env.PORT || 3000; 
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors(
     {
-        origin: [
-            "localhost:3001",
-            "localhost:3002"
-        ],
+        origin: "node-api-test-lovat.vercel.app",
         methods: ["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
 ));
