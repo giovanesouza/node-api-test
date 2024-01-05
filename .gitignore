@@ -129,5 +129,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# Utilizado para testar a API
-index.html
+# Views para testar requisições no Front
+views/*
