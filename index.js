@@ -6,6 +6,7 @@ const connectToDatabase = require("./src/database/database"); //arquivo de conex
 
 
 const usuario = require("./src/router/usuario.router"); //arquivo de rota do usuario
+const auth = require("./src/router/auth.router"); // autenticação
 
 
 const app = express();
@@ -16,7 +17,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors(
     {
-        origin: "*",
+        origin: ["http://127.0.0.1:5500", "https://localhost:3000", "https://localhost:3001"],
         methods: ["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
 ));
@@ -25,6 +26,7 @@ app.use(cors(
 connectToDatabase(); //conectando com o banco
 
 app.use("/users", usuario); //chamando as rotas do usuario
+app.use("/auth", auth); // autenticação (login)
 
 app.get("/", (req, res) => {
     res.send({
