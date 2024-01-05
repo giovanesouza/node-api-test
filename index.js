@@ -9,7 +9,9 @@ const usuario = require("./src/router/usuario.router"); //arquivo de rota do usu
 
 
 const app = express();
-const port = 3000;
+
+// PORT é utilizada quando estiver em PROD (Setada pela Vercel) e a 3000 em DEV
+const port = process.env.PORT || 3000; 
 
 app.use(express.json());
 app.use(cors(
@@ -36,6 +38,13 @@ app.get("/", (req, res) => {
 app.get("/test", (req, res) => {
     res.send({
         message: "Rota de teste"
+    });
+})
+
+// Rota notfound
+app.get("*", (req, res) => {
+    res.send({
+        message: "Rota não encontrada!"
     });
 })
 
