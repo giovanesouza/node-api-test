@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors(
     {
-        origin: "node-api-test-lovat.vercel.app",
+        origin: "https://node-api-test-lovat.vercel.app",
         methods: ["GET", "POST", "PUT", "PATCH", "DELETE"]
     }
 ));
